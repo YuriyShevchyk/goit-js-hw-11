@@ -11,11 +11,53 @@ body {
     line-height: 1,5;
 }
 
-.search-container {
+.search-form {
     position: fixed;
     padding: 10px;
     width: 100%;
 
     text-align: center;
     background-color: rgba(0, 191, 255, 0.327);
+}
+
+.title {
+    margin: 0;
+    text-align-last: left;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-card {
+    width: 32vw;
+    padding: 10px;
+    margin-top: 60px;
+}
+
+.photo-img {
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    border: 2px solid #712121;
+}
+
+.info p:not(:last-child) {
+    margin-right: 30px;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.load-more {
+    display: block;
+    margin: 10px auto;
 }
