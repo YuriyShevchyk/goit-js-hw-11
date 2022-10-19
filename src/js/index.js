@@ -3,14 +3,12 @@ import getRefs from "./refs";
 import fetchPhoto from './fetchphoto';
 import markup from './markup';
 import SimpleLightbox from "simplelightbox";
-// Додатковий імпорт стилів
 import "simplelightbox/dist/simple-lightbox.min.css";
-
 
 
 const refs = getRefs();
 
-refs.btnLoad.classList.add('is-hidden');
+// refs.btnLoad.classList.add('is-hidden');
 
 refs.form.addEventListener('submit', onSearch);
 refs.btnLoad.addEventListener('click', onLoad);
@@ -27,13 +25,31 @@ const lightbox = new SimpleLightbox('.gallery a',
 function onSearch(evt) {
     evt.preventDefault();
     searchQuery = evt.currentTarget.elements.searchQuery.value.trim();
-    if (searchQuery===0) {
+    console.log(searchQuery);
+    if (searchQuery === 0) {
         return;
     } else {
         clearGallery();
         pageNumber = 1;
         fetchPhoto(pageNumber, searchQuery);
     }
+}
+
+function onLoad() {
+    refs.btnLoad.classList.add('is-hidden');
+    pageNumber +=1;
+    searchQuery = refs.input.value.trim();
+    fetchPhoto(pageNumber, searchQuery);
+}
+
+function insertMarkup(img) {
+    const result = createGallery(img);
+    refs.gallery.insertAdjacentElement('beforeend', result);
+
+}
+
+function createGallery(img) {
+    return img.reduce((acc, item) => acc + markup(item),"")
 }
 
 function clearGallery () {
