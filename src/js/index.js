@@ -13,7 +13,7 @@ let searchQuery ="";
 refs.btnLoad.classList.add('is-hidden');
 const lightbox = new SimpleLightbox('.gallery a', 
 {
-    captionsData:'alt',
+    captionsData: 'alt',
     captionsPosition: 'bottom',
     captionDelay: 250,
 });
@@ -40,7 +40,7 @@ function onSearch(evt) {
         // clearGallery();
         // pageNumber = 1;
         onFetch();
-        console.log(onFetch);
+        console.log(onFetch());
         evt.target.reset();
     }
 
@@ -53,7 +53,7 @@ function onLoad() {
     // fetchPhoto(pageNumber, searchQuery);
     onFetch();
 }
-function insertMarkup (el) {
+const insertMarkup = el => {
     refs.gallery.insertAdjacentHTML("beforeend", markup(el));
 }
 function createMarkup(img) {
