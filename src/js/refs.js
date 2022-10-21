@@ -4,7 +4,6 @@ export default function getRefs () {
     form: document.querySelector('.search-form'),
     btnLoad: document.querySelector('.load-more'),
     gallery: document.querySelector('.gallery'),
-    alert: document.querySelector('.alert')
     }
 }
 

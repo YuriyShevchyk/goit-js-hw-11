@@ -10,9 +10,13 @@ const fetchPhoto = async(searchQuery, page) => {
         const response = await axios.get(`${BASE_URL}?key=${KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${PER_PAGES}&page=${page}`);
         if (searchQuery ==="") {
             Notiflix.Notify.failure("You have not entred search data")
+            return;
         }
         if (page === 1 && response.data.totalHits !== 0) {
-            Notiflix.Notify.success("Hooray! We found totalHits images.")
+            Notiflix.Notify.success("Hooray! We found ${response.data.totalHits} images!")
+        }
+        if (response.data.totalHits === 0) {
+            Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.")
         }
         if (PER_PAGES * page >= response.data.totalHits && response.data.totalHits !== 0) {
             setTimeout(()=> {
