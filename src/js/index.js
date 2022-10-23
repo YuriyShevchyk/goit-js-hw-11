@@ -44,7 +44,7 @@ const insertMarkup = (el) => {
     refs.gallery.insertAdjacentHTML("beforeend", markup(el));
 }
 function createMarkup(img) {
-    img.forEach(el => {
+    img.forEach((el) => {
         insertMarkup(el);
     })
 }
