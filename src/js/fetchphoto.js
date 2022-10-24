@@ -13,7 +13,7 @@ const fetchPhoto = async(searchQuery, page) => {
             return;
         }
         if (page === 1 && response.data.totalHits !== 0) {
-            Notiflix.Notify.success("Hooray! We found ${response.data.totalHits} images!")
+            Notiflix.Notify.success(`Hooray! We found ${response.data.totalHits} images!`);
         }
         if (response.data.totalHits === 0) {
             Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.")

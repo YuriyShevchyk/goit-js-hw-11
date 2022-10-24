@@ -1,7 +1,7 @@
 const markup = (item) =>
 
 `<div class="photo-card">
-<a href="${item.largeImageURL}" class="gallery-link"
+<a href="${item.largeImageURL}" class="gallery-link">
 <img class="photo-img" src="${item.webformatURL}" alt="${item.tags}" loading="lazy" height="270px" />
 <div class="info">
   <p class="info-item">
