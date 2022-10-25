@@ -60,9 +60,6 @@ function onFetch() {
         if (img.length === 39) {
             refs.btnLoad.classList.remove('is-hidden');
         }
-        if (img.length < 39) {
-            refs.btnLoad.classList.add('is-hidden');
-        }
         lightbox = new SimpleLightbox('.gallery a', 
 {
     captionsData: 'alt',
